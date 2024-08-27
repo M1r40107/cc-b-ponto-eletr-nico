@@ -1,2 +1,2 @@
-# cc-b-ponto-eletr-nico
+# cc-b-ponto-eletronico
 Sistema de bater ponto para funcionários
