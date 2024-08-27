@@ -62,6 +62,7 @@ function printCurrentHour() {
 }
 
 function register() {
+//Abrir <dialog> ou nom mínimo 4 botões
     alert("Bater Ponto");
 }
 
