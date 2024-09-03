@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Controle de Ponto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>bata ponto</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="data-hora">
-        <p id="dia-semana">Terça-feira</p>
-        <p id="dia-mes-ano">27/08/2024</p>
-        <p id="hora-min-seg">08:33:44</p>
+        <p id="dia">Segunda-Feira</p>
+        <p id="data">27/07/2001</p>
+        <p id="hora">08:33</p>
     </div>
-    <button id="btn-bater-ponto">Bater Ponto</button>
-    <dialog id="dialog-ponto">
+    <button class="Bater-ponto">Bater ponto</button>
+    
+    <dialog id="pontoDialog">
         <p>Data</p>
         <p>Hora</p>
         <button>Entrada</button>
         <button>Intervalo</button>
         <button>Volta Intervalo</button>
         <button>Saída</button>
-        <button id="btn-dialog-fechar">X</button>
+        <button id="fecharDialog">X</button>
     </dialog>
+
     <script src="js/index.js"></script>
 </body>
 </html>

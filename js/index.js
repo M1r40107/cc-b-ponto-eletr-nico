@@ -1,69 +1,69 @@
-const diaSemana = document.getElementById("dia-semana");
-const diaMesAno = document.getElementById("dia-mes-ano");
-const horaMinSeg = document.getElementById("hora-min-seg");
+const diaSemana = document.getElementById("dia");
+const dataAtual = document.getElementById("data");
+const horaAtual = document.getElementById("hora");
 
-diaSemana.textContent = getWeekDay();
-diaMesAno.textContent = getCurrentDate();
+// Seleciona os elementos para o diálogo e o botão de bater ponto
+const pontoDialog = document.getElementById("pontoDialog");
+const baterPontoButton = document.querySelector(".Bater-ponto");
+const fecharDialogButton = document.getElementById("fecharDialog");
 
-const BaterPonto = document.getElementById("btn-bater-ponto");
-BaterPonto.addEventListener("click", register);
+// Atualiza o dia da semana
+const diasDaSemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+function getDayOfWeek() {
+    const date = new Date();
+    return diasDaSemana[date.getDay()];
+}
 
-const DialogPonto = document.getElementById("dialog-ponto");
+diaSemana.textContent = getDayOfWeek();
+dataAtual.textContent = getCurrentDate(false);  // false para formato padrão dd/mm/yyyy
+horaAtual.textContent = getCurrentTime();
 
-const fecharDialog = document.getElementById("btn-dialog-fechar")
-fecharDialog = addEventListener("click", () => {
-    DialogPonto.close()
+// Abre o diálogo ao clicar no botão "Bater em CLT - ponto"
+baterPontoButton.addEventListener('click', () => {
+    pontoDialog.showModal(); // Abre o diálogo como modal
 });
 
-function register() {
-    dialogPonto.showModal();
-}
+// Fecha o diálogo ao clicar no botão "Fechar"
+fecharDialogButton.addEventListener('click', () => {
+    pontoDialog.close(); // Fecha o diálogo
+});
 
-function getWeekDay(){
+// Atualiza a hora em tempo real
+setInterval(() => {
+    horaAtual.textContent = getCurrentTime();
+}, 1000);
+
+let usTime = false;
+
+function arrumaMes() {
     const date = new Date();
-    let days = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-    return days[date.getDay()];  
+    let mesMaisUm = date.getMonth() + 1;
+    return mesMaisUm < 10 ? "0" + mesMaisUm : mesMaisUm;
 }
 
-function getCurrentDate() {
+function arrumaDataParaUs() {
     const date = new Date();
-    let month = date.getMonth();
-    let day = date.getDay();
-
-    if (day < 10) {
-        day = "0" + day 
-    }
-
-    if (month < 10 ) {
-        month = "0" + (month + 1)
-    }
-
-    return day + "/" + month + "/" + date.getFullYear();
+    return arrumaMes() + "/" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + "/" + date.getFullYear();
 }
 
-function getCurrentHour() {
+function getCurrentDate(ustime) {
     const date = new Date();
-    let hour = date.getHours();
-    let min = date.getMinutes();
-    let seg = date.getSeconds();
-
-    if (hour < 10) {
-        hour = "0" + hour
+    let dia = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    if (ustime) {
+        return arrumaDataParaUs();
     }
-
-    if (min < 10) {
-        min = "0" + min
-    }
-
-    if (seg < 10) {
-        seg = "0" + seg
-    }
-
-    return hour + ":" + min + ":" + seg;
+    return dia + "/" + arrumaMes() + "/" + date.getFullYear();
 }
 
-function printCurrentHour() {
-    horaMinSeg.textContent = getCurrentHour();
-}
+function getCurrentTime() {
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
 
-setInterval(printCurrentHour, 1000);
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return hours + ":" + minutes + ":" + seconds;
+}
