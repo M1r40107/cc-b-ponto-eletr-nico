@@ -1,12 +1,23 @@
 const diaSemana = document.getElementById("dia-semana");
 const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-min-seg");
-const BaterPonto = document.getElementById("bater-ponto");
 
-BaterPonto.addEventListener("click", register);
 diaSemana.textContent = getWeekDay();
 diaMesAno.textContent = getCurrentDate();
 
+const BaterPonto = document.getElementById("btn-bater-ponto");
+BaterPonto.addEventListener("click", register);
+
+const DialogPonto = document.getElementById("dialog-ponto");
+
+const fecharDialog = document.getElementById("btn-dialog-fechar")
+fecharDialog = addEventListener("click", () => {
+    DialogPonto.close()
+});
+
+function register() {
+    dialogPonto.showModal();
+}
 
 function getWeekDay(){
     const date = new Date();
@@ -15,9 +26,6 @@ function getWeekDay(){
 }
 
 function getCurrentDate() {
-    //Alterar a solução para considerar padStart ou Slice
-    //Considerar formatos diferentes da data, conforme localização
-    //do usuário dd/mm/aaaa, mm/dd/aaaa, aaaa/mm/dd, aaaa.mm.dd
     const date = new Date();
     let month = date.getMonth();
     let day = date.getDay();
@@ -34,9 +42,6 @@ function getCurrentDate() {
 }
 
 function getCurrentHour() {
-    //Considerar os métodos abaixo para incluir zeros em números < 10
-    //padStart()
-    //slice()
     const date = new Date();
     let hour = date.getHours();
     let min = date.getMinutes();
@@ -59,11 +64,6 @@ function getCurrentHour() {
 
 function printCurrentHour() {
     horaMinSeg.textContent = getCurrentHour();
-}
-
-function register() {
-//Abrir <dialog> ou nom mínimo 4 botões
-    alert("Bater Ponto");
 }
 
 setInterval(printCurrentHour, 1000);
