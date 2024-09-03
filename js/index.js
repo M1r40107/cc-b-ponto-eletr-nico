@@ -1,3 +1,7 @@
+navigator.geolocation.getCurrentPosition(() => {
+    console.log(position);
+});
+
 const diaSemana = document.getElementById("dia");
 const dataAtual = document.getElementById("data");
 const horaAtual = document.getElementById("hora");
