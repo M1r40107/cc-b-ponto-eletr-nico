@@ -7,3 +7,19 @@
     top: 0;
     right: 0;
 }
+
+#alerta-registrar-ponto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ccc;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
