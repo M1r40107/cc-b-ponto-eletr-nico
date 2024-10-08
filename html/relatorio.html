@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Pontos Batidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Relatório de Pontos Batidos</h1>
+    
+    <div class="table-container">
+        <table id="pontosTabela">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Entrada</th>
+                    <th>Intervalo</th>
+                    <th>Volta do Intervalo</th>
+                    <th>Saída</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de ponto -->
+                <tr data-id="1">
+                    <td>2024-10-08</td>
+                    <td>08:00</td>
+                    <td>12:00</td>
+                    <td>13:00</td>
+                    <td>17:00</td>
+                    <td class="action-buttons">
+                        <button class="edit">Editar</button>
+                        <button class="delete">Excluir</button>
+                    </td>
+                </tr>
+                <tr data-id="2">
+                    <td>2024-10-09</td>
+                    <td>08:00</td>
+                    <td>12:00</td>
+                    <td>13:00</td>
+                    <td>17:00</td>
+                    <td class="action-buttons">
+                        <button class="edit">Editar</button>
+                        <button class="delete">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Formulário de edição -->
+    <div class="edit-form" id="editForm">
+        <h2>Editar Ponto</h2>
+        <label for="data">Data:</label>
+        <input type="date" id="data" required>
+
+        <label for="entrada">Entrada:</label>
+        <input type="time" id="entrada" required>
+
+        <label for="intervalo">Intervalo:</label>
+        <input type="time" id="intervalo" required>
+
+        <label for="volta">Volta do Intervalo:</label>
+        <input type="time" id="volta" required>
+
+        <label for="saida">Saída:</label>
+        <input type="time" id="saida" required>
+
+        <button id="saveBtn">Salvar</button>
+        <button class="cancel" id="cancelBtn">Cancelar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
